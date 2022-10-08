@@ -36,7 +36,7 @@ body{
 .calculator-display{
     box-sizing: border-box;
     max-width: 340px;
-    max-height: 84px;
+    height: 84px;
     background-color: rgb(34, 145, 58);
     border-radius: 3px;
     text-align: right;
@@ -46,13 +46,13 @@ body{
 }
 
 #op-text{
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 1000;
     color:rgb(18, 109, 38)
 }
 
 #result-text{
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding-top: 20px;
     color:rgb(7, 77, 22)
 }
@@ -69,12 +69,29 @@ body{
 
 }
 
+.calculator-delete{
+    border-style: none;
+    background-color: rgb(190, 62, 62);
+    color: aliceblue;
+    border-radius: 5px;
+    border-color: white;
+    font-weight: 500;
+    font-size: 1.20rem;
+    margin-bottom: 20px;
+}
+
 .calculator-buttons{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     width: 340px;
     gap: 20px;
 
+}
+
+.first-buttons{
+    display: grid;
+    grid-template-columns: 250px auto;
+    gap: 20px
 }
 
 .btn{
@@ -92,7 +109,19 @@ body{
     background-color: #313131;
 }
 
+#equal{
+    background-color: rgb(190, 62, 62);
+}
+
 .calculator-clear:hover{
+    background-color: rgb(141, 22, 22);
+}
+
+.calculator-delete:hover{
+    background-color: rgb(141, 22, 22);
+}
+
+#equal:hover{
     background-color: rgb(141, 22, 22);
 }
 
@@ -103,9 +132,10 @@ footer{
     left: 0;
     right: 0;
     height:80px;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
+    font-size: 0.8rem;
 }
 
 .img-container{
@@ -113,14 +143,17 @@ footer{
     height: 30px;
 }
 img{
-   width: 100%;
-   height: auto; 
+    display: flex;
+    width: 100%;
+    height: auto; 
+    justify-items: center;
 }
 
-a{
+a{  
     display: flex;
-    height: 30x;
-    width: 30px; 
+    height: 20px;
+    width: 20px; 
+    margin-top: 4px;
 }
 
 .img-container:hover{
