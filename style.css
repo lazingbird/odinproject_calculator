@@ -1,4 +1,6 @@
-
+html{
+    height: 100%;
+}
 
 h1,
 h2,
@@ -11,10 +13,12 @@ p{
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-content: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: aliceblue;
+    background-color: rgb(240, 253, 255);
+    align-items: center;
+    min-height: 90%;
 }
 
 .calculator-container{
@@ -23,17 +27,17 @@ body{
     max-width: 380px;
     max-height: 488px;
     padding: 20px;
-    background-color: #FFDD85;
+    background-color: #555555;
     border-radius: 10px;
-    justify-content: center;
+    justify-content: center;;
 }
 
 .calculator-display{
     box-sizing: border-box;
     max-width: 340px;
     max-height: 84px;
-    background-color: white;
-    border-radius: 5px;
+    background-color: rgb(34, 145, 58);
+    border-radius: 3px;
     text-align: right;
     padding: 10px;
     padding-right: 15px;
@@ -41,17 +45,21 @@ body{
 }
 
 #op-text{
-    font-size: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color:rgb(18, 109, 38)
 }
 
 #result-text{
     font-size: 1.5rem;
     padding-top: 20px;
+    color:rgb(7, 77, 22)
 }
 
 .calculator-clear{
     border-style: none;
-    background-color: white;
+    background-color: rgb(190, 62, 62);
+    color: aliceblue;
     border-radius: 5px;
     border-color: white;
     font-weight: 100;
@@ -72,16 +80,56 @@ body{
     width: auto;
     height: auto;
     border-style: none;
-    background-color: white;
+    background-color: rgb(130, 134, 143);
+    color: aliceblue;
     border-radius: 5px;
     font-size: 1.15rem;
     font-weight: 100;
 }
 
 .btn:hover{
-    background-color: ghostwhite;
+    background-color: #313131;
 }
 
 .calculator-clear:hover{
-    background-color: ghostwhite;
+    background-color: rgb(141, 22, 22);
 }
+
+footer{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height:80px;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container{
+    display: flex;
+    height: 30px;
+}
+img{
+   width: 100%;
+   height: auto; 
+}
+
+a{
+    display: flex;
+    height: 30px; 
+}
+
+.img-container:hover{
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

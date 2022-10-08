@@ -22,7 +22,8 @@ function divide(a, b){
 let displayValue = ""
 let firstNumber = ""
 let secondNumber = ""
-let currentOperator = ""
+let lastPressed = ""
+let currentOperator = null
 
 // Query page elements
 
@@ -42,11 +43,13 @@ function insertNum(number){
         const operation = document.querySelector("#op-text");
         operation.textContent += number;
         displayValue = operation.textContent;
+        lastPressed = "number"
     }
     else{
         const operation = document.querySelector("#op-text");
         operation.textContent += number;
         secondNumber += number
+        lastPressed = "number"
     }
 }
 
@@ -55,10 +58,29 @@ insertNumber.forEach((button) =>
 )
 
 function insertOp(operator){
-    const operation = document.querySelector("#op-text");
-    operation.textContent += operator;
-    currentOperator = operator;
-    firstNumber = displayValue;
+
+    if (lastPressed === "operator"){
+        return
+    }
+    else if(firstNumber != "" && secondNumber != ""){
+        evaluate(currentOperator, firstNumber, secondNumber)
+        currentOperator = operator
+        operation.textContent += operator;
+        firstNumber = displayValue;
+        secondNumber = "";
+        lastPressed = "operator";
+    }
+    else{
+        const operation = document.querySelector("#op-text");
+        operation.textContent += operator;
+        currentOperator = operator;
+        firstNumber = displayValue;
+        secondNumber = ""
+        lastPressed = "operator";
+    
+    }
+
+  
 }
 
 insertOperator.forEach((button) =>
@@ -69,9 +91,10 @@ function clear(){
     displayValue = ""
     firstNumber = ""
     secondNumber = ""
-    operator = ""
+    currentOperator = ""
     operation.textContent = ""
     operation.appendChild(linebreak)
+    result.textContent = "0"
 }
 
 clearDisplay.addEventListener("click", clear)
@@ -95,9 +118,15 @@ function operate(operator, a, b){
     }
 }
 
-equal.addEventListener("click", () => {
-    result.textContent = operate(currentOperator, firstNumber, secondNumber);
-    firstNumber = operate(currentOperator, firstNumber, secondNumber);
-})
+
+function evaluate(currentOperator, firstNumber, secondNumber){
+    result.textContent = operate(currentOperator, firstNumber, secondNumber)
+    displayValue = result.textContent
+    console.log(firstNumber)
+    console.log(secondNumber)
+}
+    
+
+equal.addEventListener("click", () => evaluate(currentOperator,firstNumber,secondNumber));
 
 
