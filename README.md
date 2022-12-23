@@ -2,7 +2,7 @@
 
 Finally, I reached the last project of TOP's Foundations path, which was very rewarding. It is a simple calculator, but I liked the visuals and funcionalities of the final result.
 
-[link to play with](https://lazingbird.github.io/odinproject_calculator/)
+[link to play with](https://lazingbird.github.io/calculator/)
 
 See for yourself:
 
